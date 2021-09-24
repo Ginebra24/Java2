@@ -1,0 +1,30 @@
+package ej3;
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class FechaCumple {
+
+	//Ingresar fecha nacimiento y mostrar cuantos días has vivido
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		//declaramos variables
+		int dia,mes,anyo,dif;
+		
+		//guardamos la fecha introducida
+		System.out.println("Introduce la fecha de nacimiento (dd-mm-aaaa):");
+		dia=sc.nextInt();
+		mes=sc.nextInt();
+		anyo=sc.nextInt();
+		
+		//guardamos la fecha actual
+		LocalDate hoy=LocalDate.now();
+		
+		//calculamos la diferencia de dias y sacamos por pantalla
+		dif=Math.abs((hoy.getDayOfMonth()-dia)+((hoy.getMonthValue()-mes)*30)+((hoy.getYear()-anyo)*365)) ;
+		System.out.println("Has vivido "+ dif+ " dias" );
+
+	}
+
+}

@@ -1,0 +1,68 @@
+package ej7;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class PaisCapital {
+
+	//Ingresa 5 paises con sus capitales y mostrar por pantalla.
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		
+		//creamos el hashMap y declaramos variables
+		HashMap<String, String> paisCapital= new HashMap<String,String>();
+		String pais1,cap1,pais2,cap2,pais3,cap3,pais4,cap4,pais5,cap5;
+		String s;
+		
+		//Leemos los paises y capitales introducidos por teclado
+		System.out.println("Introduzca pais y su capital");
+		pais1=sc.nextLine();
+		cap1=sc.nextLine();		
+		
+		System.out.println("Introduzca pais y su capital");
+		pais2=sc.nextLine();
+		cap2=sc.nextLine();	
+		
+		System.out.println("Introduzca pais y su capital");
+		pais3=sc.nextLine();
+		cap3=sc.nextLine();	
+		
+		System.out.println("Introduzca pais y su capital");
+		pais4=sc.nextLine();
+		cap4=sc.nextLine();	
+		
+		System.out.println("Introduzca pais y su capital");
+		pais5=sc.nextLine();
+		cap5=sc.nextLine();	
+		
+		//los guardamos dentro del hashMap
+		paisCapital.put(pais1, cap1);
+		paisCapital.put(pais2, cap2);
+		paisCapital.put(pais3, cap3);
+		paisCapital.put(pais4, cap4);
+		paisCapital.put(pais5, cap5);
+		
+		//imprimimos el hashMap
+		System.out.println(paisCapital);
+		
+		
+		System.out.println("Quieres saber la capital de algun pais? (Introduzca Si)");
+		s=sc.nextLine();
+		
+		//mientras quiera saber capitales las mostramos segun la clave(pais)
+		while(s.equals("Si")) {			
+			System.out.println("Introduzca el pais:");
+			String pais=sc.nextLine();
+			if(pais.equals(pais1)||pais.equals(pais2)||pais.equals(pais3)||pais.equals(pais4)||pais.equals(pais5)) {
+				System.out.println(paisCapital.get(pais));
+			}else {
+				System.out.println("El pais no coincide con ninguno guardado.");
+			}
+			System.out.println("Quieres saber la capital de otro pais? (Introduzca Si)");
+			s=sc.nextLine();
+		}
+		
+	}
+
+}

@@ -1,0 +1,37 @@
+package ej8;
+
+import java.time.LocalDate;
+import java.util.Scanner;
+
+public class Fechas {
+
+	//pedir 2 fechas por teclado y decir cual es mayor
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		//declaro variables
+		String fecha1,fecha2;
+		
+		//guardo las fechas introducidas
+		System.out.println("Introduce dos fechas con el formato (aaaa-mm-dd):");
+		fecha1=sc.nextLine();
+		fecha2=sc.nextLine();
+		
+		//las paso a LocalDate
+		LocalDate f1=LocalDate.parse(fecha1);
+		LocalDate f2=LocalDate.parse(fecha2);
+		
+		//comparo las fechas
+		if(f1.isBefore(f2)) {
+			System.out.println(f2 +" es mayor que "+f1);
+			
+		}else if(f1.equals(f2)) {
+			System.out.println("Son la misma fecha");
+		}else
+			System.out.println(f1 +" es mayor que "+f2);
+		
+		
+	}
+
+}

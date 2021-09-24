@@ -1,0 +1,31 @@
+package ej3;
+
+import java.util.Scanner;
+
+public class Main3 {
+	
+	/**Leer 10 numeros enteros. Debemos mostrarlos en el 
+	*siguiente orden: el primero, el último, el segundo, el penúltimo...
+	*/
+	
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		//declaramos el array
+		int numero[] = new int[10];
+		
+		//guardamos en el array los numeros introducidos
+		for(int i=0;i<10;i++){
+			System.out.println("Introduzca numero");
+			numero[i] = sc.nextInt();
+		}
+		
+		//los imprimimos de dos en dos
+		for(int i=0;i<=4;i++){
+			System.out.println(numero[i]);
+			System.out.println(numero[9-i]);
+			}
+		}
+
+	
+
+}

@@ -1,0 +1,42 @@
+package ej4;
+
+import java.util.Scanner;
+
+public class Main4 {
+	
+	/**Crear programa que lea por teclado una tabla de 10 enteros
+	*y la desplace una posición hacia abajo: el primero pasa a ser el segundo y así. 
+	*el último pasa a ser el primero
+	*/
+	
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		//declaramos las variables
+		int[] numeros=new int[10];
+		int ultimo;
+		
+		//guardamos los numeros introducidos
+		for(int i=0;i<10;i++){
+			System.out.println("Introduzca numero");
+			numeros[i] = sc.nextInt();
+		}
+		//guardamos la ultima posicion
+		ultimo=numeros[9];
+		
+		//los movemos todos una posicion
+		for(int i=8; i>=0; i--) {
+			numeros[i+1]=numeros[i];
+			
+		}
+		//guardamos el ultimo en el primero
+		numeros[0]=ultimo;
+		
+		//los imprimimos por pantalla
+		for(int i=0; i<10; i++) {
+			System.out.println(numeros[i]);
+		}
+		
+	}
+
+}

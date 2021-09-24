@@ -1,0 +1,22 @@
+package ej1;
+
+public class Suma {
+
+	//Utilice la recursividad para sumar todos los números entre 7 y 15
+	public static void main(String[] args) {
+
+		System.out.println("Suma de todos los números entre 7 y 15= "+sumar(15));
+		
+		
+	}
+	
+	//metodo recursivo para calcular la suma
+	public static int sumar(int n){
+		
+		if(n>6) {
+			return n+sumar(n-1);
+		}else
+			return 0;
+	}
+
+}

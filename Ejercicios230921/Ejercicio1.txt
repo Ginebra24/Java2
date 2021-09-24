@@ -1,0 +1,26 @@
+package ej1;
+import java.util.Scanner;
+
+public class Main {
+
+	//Leer 7 numeros y mostrarlos en el mismo orden introducido
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		//declaramos el array
+		int numeros[] = new int[7];
+		
+		System.out.println("Introduce 7 dígitos:");
+		
+		//guardamos los 7 numeros introducidos por teclado
+		for(int i=0; i<numeros.length;i++) {
+			numeros[i]=sc.nextInt();
+		}
+		
+		//los imprimimos por pantalla
+		for(int i=0; i<numeros.length; i++) {
+			System.out.println(numeros[i]);
+		}
+		
+	
+	}
+}

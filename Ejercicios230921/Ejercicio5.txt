@@ -1,0 +1,67 @@
+package ej5;
+
+import java.util.Scanner;
+
+public class Main5 {
+
+	/**Cada grupo compuesto por 5 alumnos. Leer las
+	 * notas del primer, segundo y tercer trimestre de un grupo
+	 * Debemos mostrar la nota media del grupo en cada trimestre,
+	 * y la media del alumno que se encuentra en la posición N
+	 */
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		// declaramos las variables
+		int[] notas1 = new int[5];
+		int[] notas2 = new int[5];
+		int[] notas3 = new int[5];
+		int N,i;
+		int suma1=0;
+		int suma2=0;
+		int suma3=0;
+		double media;
+		
+		// leemos las notas 
+		System.out.print("Introduce las notas del primer trimestre ");
+		for(i=0; i<5;i++) {
+			notas1[i]=sc.nextInt();
+		}
+		
+		System.out.print("Introduce las notas del segundo trimestre ");
+		for (i=0;i<5;i++){
+			notas2[i]=sc.nextInt();
+		}
+		
+		System.out.print("Introduce las notas del tercer trimestre ");
+		for (i=0;i<5;i++){
+			notas3[i]=sc.nextInt();
+		}
+		
+		// calculamos las sumas de cada trimestre
+		for (i =0; i < 5; i++){
+			suma1 += notas1[i];
+			suma2 += notas2[i];
+			suma3 += notas3[i];
+		}
+		
+		System.out.println("La media del primer trimestre es: "+ suma1/5.0);
+		System.out.println("La media del segundo trimestre es: "+ suma2/5.0);
+		System.out.println("La media del tercer trimestre es: "+ suma3/5.0);
+		
+		
+		System.out.print ("Introduzca la posición del alumno (de 0 a 4): ");
+		N=sc.nextInt();
+		
+		//calculamos la media del alumno determinado
+		media = (double) (notas1[N]+notas2[N]+notas3[N])/3;
+		
+		
+		System.out.println("La media del alumno es: " + media);
+
+		
+
+	}
+
+}
