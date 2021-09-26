@@ -24,12 +24,12 @@ public class Fechas {
 		
 		//comparo las fechas
 		if(f1.isBefore(f2)) {
-			System.out.println(f2 +" es mayor que "+f1);
+			System.out.println(f2 +" es posterior a "+f1);
 			
 		}else if(f1.equals(f2)) {
 			System.out.println("Son la misma fecha");
 		}else
-			System.out.println(f1 +" es mayor que "+f2);
+			System.out.println(f1 +" es posterior a "+f2);
 		
 		
 	}
