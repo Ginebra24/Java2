@@ -1,0 +1,76 @@
+package ej4;
+
+public class claseObjeto {
+
+	/**La clase Object es la superclase de todas las clases.
+	 * Todas las clases heredan de la clase Object
+	 */
+	
+	//declaro unos atributos para la clase
+	private String tamanyo;
+	private String color;
+	
+	
+	
+	//creamos el constructor con parametros
+	public claseObjeto(String tamanyo, String color) {
+		super();
+		this.tamanyo = tamanyo;
+		this.color = color;
+	}
+
+	
+	//get y set de todos los atributos
+	
+	public String getTamanyo() {
+		return tamanyo;
+	}
+
+	public void setAtrib1(String tamanyo) {
+		this.tamanyo = tamanyo;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setAtrib2(String color) {
+		this.color = color;
+	}
+
+	//metodo propio de la clase que imprime los atributos del objeto
+	
+	public void imprimir(claseObjeto o) {
+		System.out.println("El tamaño del objeto  es "+ o.getTamanyo());
+		System.out.println("El color del objeto  es "+ o.getColor());
+	}
+
+
+	//metodo principal
+	public static void main(String[] args) {
+		
+		//creamos un objeto de la clase claseObjeto
+		claseObjeto o1= new claseObjeto("grande","rojo");
+		claseObjeto o2= new claseObjeto("grande","verde");
+		
+		//getClass es un metodo que viene por defecto con la clase Objeto
+		//este metodo devuelve la clase del objeto
+		System.out.println("La clase del objeto es "+ o1.getClass());
+		
+		//los metodos hashCode y equals se usan para comparar objetos
+		if(o1.hashCode()==o2.hashCode()) {
+			System.out.println("Los dos objetos tienen el mismo código");
+		}else
+			System.out.println("No tienen el mismo código");
+		
+		if(o1.equals(o2)) {
+			System.out.println("Los dos objetos son iguales");
+		}else
+			System.out.println("Los dos objetos no son iguales");
+		
+		//llamamos el metodo propio imprimir
+		o1.imprimir(o1);
+		
+	}
+
+}
