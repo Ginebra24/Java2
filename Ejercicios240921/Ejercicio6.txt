@@ -1,0 +1,126 @@
+package ej6;
+
+public class Cliente {
+	
+	//declaramos las variables de la clase Cliente
+	private String nombre;
+	private String apellido;
+	private String telf;
+	private String email;
+	
+	
+	
+	//constructor con parametros de Cliente
+	public Cliente(String nombre, String apellido, String telf, String email) {
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.telf = telf;
+		this.email = email;
+	}
+
+
+
+	//get y set de todos los atributos
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getTelf() {
+		return telf;
+	}
+
+	public void setTelf(String telf) {
+		this.telf = telf;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+	
+	
+
+}
+
+
+
+
+
+package ej6;
+
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		//creamos la lista donde guardaremos los clientes
+		LinkedList<Cliente> clientes= new LinkedList<Cliente>();
+		
+		//declaramos las variables que necesitaremos
+		String nomb,apell,tel,mail,s;
+		int i=0;
+		
+		//puedes introducir hasta 10 clientes y los voy añadiendo a la lista
+		do {
+			System.out.println("Introduzca nombre, apellido, teléfono y email: ");
+			nomb=sc.nextLine();
+			apell=sc.nextLine();
+			tel=sc.nextLine();
+			mail=sc.nextLine();
+		
+			clientes.add(new Cliente(nomb,apell,tel,mail));
+			
+			System.out.println("Desea introducir más clientes?");
+			s=sc.nextLine();
+			i++;
+			}while(s.equals("Si")&& i<10);
+		
+		//muestro por pantalla los atributos de cada cliente introducido
+		for(Cliente a: clientes) {
+			System.out.println("Nombre: "+a.getNombre());
+			System.out.println("Apellido: "+a.getApellido());
+			System.out.println("Teléfono : "+a.getTelf());
+			System.out.println("Email: "+a.getEmail());
+			System.out.println("-----------------------");
+		}
+		
+		//doy la opción de introducir más clientes
+		System.out.println("Desea introducir más clientes?");
+		s=sc.nextLine();
+		
+		while(s.equals("Si")) {
+			System.out.println("Introduzca nombre, apellido, teléfono y email: ");
+			nomb=sc.nextLine();
+			apell=sc.nextLine();
+			tel=sc.nextLine();
+			mail=sc.nextLine();
+		
+			clientes.add(new Cliente(nomb,apell,tel,mail));
+			
+			System.out.println("Desea introducir más clientes?");
+			s=sc.nextLine();
+		}
+	}
+
+}
