@@ -1,0 +1,89 @@
+package ej5;
+
+import java.util.Scanner;
+
+public class Interfaces {
+	
+	//implemento la interfaz
+	interface Numeros{
+		
+		//calcula el factorial
+		int getFactorial();
+		
+		//me dice si es par o impar
+		void esPar();
+		
+		//me dice si es múltiple de 5
+		void esMult5();	
+	}	
+}
+
+
+package ej5;
+
+import ej5.Interfaces.Numeros;
+
+public class Num implements Numeros{
+	int n;
+	int factorial=1;
+	
+	
+	//creo el constructor
+	public Num(int n) {
+		super();
+		this.n = n;
+	}
+
+	//calculo el factorial
+	public int getFactorial() {
+		while(n!=0) {
+			factorial=factorial*n;
+			n--;
+		}
+		return factorial;
+	}
+
+	//miro si es par
+	public void esPar() {
+		if(n%2==0) {
+			System.out.println("El número es par");
+		}else
+			System.out.println("El número es impar");
+	}
+
+	//miro si es multiplo de 5
+	public void esMult5() {
+		if(n%5==0) {
+			System.out.println("El número es múltiplo de 5");
+		}else
+			System.out.println("El número no es múltiplo de 5");
+	}
+
+}
+
+package ej5;
+
+import java.util.Scanner;
+
+public class Principal {
+
+
+	public static void main(String[] args) {
+		
+		Scanner sc=new Scanner(System.in);
+		
+		//leo un numero introducido por teclado
+		System.out.println("Introduce un número entero");
+		int n=sc.nextInt();
+		
+		//creo un nuevo objeto Num
+		Num a=new Num(n);
+		
+		//uso los metodos de la interfaz
+		a.esPar();
+		a.esMult5();
+		System.out.println("El factorial del número es "+a.getFactorial());
+		
+	}
+
+}
