@@ -1,0 +1,26 @@
+package ej1;
+
+import java.util.Scanner;
+
+public class IntercambiarPalabra {
+
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Introduzca una frase ");
+		
+		String frase=sc.nextLine();
+		
+		String[] partes=frase.split(" ");
+		String fraseInter="";
+		
+		for(int i=1; i <partes.length-1;i++) {
+			fraseInter=fraseInter+" "+partes[i];
+			
+		}
+		fraseInter=partes[partes.length - 1]+" "+fraseInter+" "+partes[0];
+		
+		System.out.println("La frase con las palabras intercambiadas es: "+fraseInter);
+	}
+
+}

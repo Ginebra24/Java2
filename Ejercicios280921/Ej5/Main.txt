@@ -1,0 +1,121 @@
+package ejer5;
+
+import java.util.Iterator;
+
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import java.util.Stack;
+
+import ej5.Paciente;
+
+public class Main  {
+	
+	
+	//metodo principal
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		int resp;
+		
+		Stack<Paciente> pacient=new Stack<Paciente>();
+		
+		Paciente p1= new Paciente("Juan","H",23);
+		Paciente p2= new Paciente("Maria","M",26);
+		Paciente p3= new Paciente("Francisco","H",56);
+		Paciente p4= new Paciente("Rita","M",63);
+		
+		pacient.push(p1);
+		pacient.push(p2);
+		pacient.push(p3);
+		pacient.push(p4);
+		
+		Pila pacientes= new Pila(pacient,10);
+		
+		Iterator<Paciente> i=pacient.iterator();
+		
+		int tam=0;
+		while(i.hasNext()) {
+			Paciente pac=i.next();
+			System.out.println("Paciente "+ tam);
+			System.out.println("Nombre: "+ pac.getNombre());
+			System.out.println("Sexo: "+ pac.getSexo());
+			System.out.println("Edad: "+ pac.getEdad());
+			System.out.println("-----------------------");
+			tam++;
+			
+		}
+		
+		do {
+		
+			System.out.println("[A] si desea añadir pacientes ");
+			System.out.println("[E] si desea extraer pacientes ");
+			System.out.println("[V] si desea saber si la pila está vacía ");
+			System.out.println("[P] si desea ver el último paciente introducido ");
+			String s=sc.next();
+		
+			switch(s) {
+		
+			case "A":
+			
+				System.out.println("Introduzca el nombre del paciente");
+			
+				String nom=sc.next();
+			
+				System.out.println("Introduzca el sexo del paciente");
+			
+				String sex=sc.next();
+			
+				System.out.println("Introduzca la edad del paciente");
+			
+				int ed=sc.nextInt();
+				if(pacientes.añadir(nom,sex,ed)==true) {
+					System.out.println("Se ha añadido el paciente a la lista");
+				
+				}else
+					System.out.println("La pila está llena");
+			
+				break;
+			case "E":
+				Paciente pc1=pacientes.extraer();
+					System.out.println("Se ha eliminado el paciente ");
+					System.out.println("Nombre: "+ pc1.getNombre());
+					System.out.println("Sexo: "+ pc1.getSexo());
+					System.out.println("Edad: "+ pc1.getEdad());
+					break;
+				
+				
+			
+			case "V":
+				if(pacientes.estaVacia()==true) {
+					System.out.println("La pila está vacía");
+				}else
+					System.out.println("La pila no está vacía");
+			
+				break;
+			case "P":
+				Paciente pc2=pacientes.primero();
+				System.out.println("El último paciente es ");
+				System.out.println("Nombre: "+ pc2.getNombre());
+				System.out.println("Sexo: "+ pc2.getSexo());
+				System.out.println("Edad: "+ pc2.getEdad());
+			
+				break;
+			
+			default:
+			
+		
+			}
+			
+			System.out.println("Desea seguir? (0 No, 1 Si)");
+			resp=sc.nextInt();
+		
+		}while(resp==1);
+		
+		
+		
+	}
+	
+
+	
+
+}

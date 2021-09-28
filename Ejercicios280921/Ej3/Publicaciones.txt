@@ -1,0 +1,50 @@
+package ej3;
+
+public class Publicaciones {
+
+	String titulo;
+	int prestado;
+	int anyo;
+	
+	public Publicaciones(String titulo, int prestado, int anyo) {
+		super();
+		this.titulo = titulo;
+		this.prestado = prestado;
+		this.anyo = anyo;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public int getPrestado() {
+		return prestado;
+	}
+
+	public void setPrestado(int prestado) {
+		this.prestado = prestado;
+	}
+
+	public int getAnyo() {
+		return anyo;
+	}
+
+	public void setAnyo(int anyo) {
+		this.anyo = anyo;
+	}
+	
+	public String isPrestado() {
+		String c;
+		if(prestado==0) {
+			c="No";
+		}else
+			c="Si";
+		return c;
+	}
+	
+	
+}

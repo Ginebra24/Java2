@@ -1,0 +1,74 @@
+package ejer5;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Stack;
+
+import ej5.Paciente;
+
+public class Pila implements ColeccionInterfaz {
+	
+	private Stack<Paciente> pila=new Stack<Paciente>();
+	private int max=10;
+	private int tam;
+	private Paciente eliminado;
+	private Paciente primero;
+	private Iterator<Paciente> i=pila.iterator();
+	
+	
+	public Pila(Stack<Paciente> pila, int max) {
+		super();
+		this.pila = pila;
+		this.max = max;
+	
+	}
+	
+	//metodo añade pacientes
+		@Override
+		public boolean añadir(String nom, String sex, int ed) {
+			tam=pila.size();
+			if(tam<max) {
+				
+				pila.push(new Paciente(nom,sex,ed));
+				return true;
+			}else
+				return false;
+		}
+		
+
+		//metodo mira si esta vacia
+		@Override
+		public boolean estaVacia() {
+			if(pila.empty())
+				return true;
+			else
+				return false;
+		}
+
+		//metodos elimina pacientes
+		@Override
+		public Paciente extraer() {	
+			try {
+				eliminado=pila.pop();
+			} catch (NoSuchElementException e) {
+				
+				
+			}
+			return eliminado;
+		}
+
+		//metodo muestra el primero
+		@Override
+		public Paciente primero() {
+			try {
+				primero=pila.peek();
+				
+			} catch (NoSuchElementException e) {
+				System.out.println("No hay pacientes en la pila");
+			}
+			return primero;
+		}
+	
+	
+
+}

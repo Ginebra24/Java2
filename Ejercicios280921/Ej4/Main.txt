@@ -1,0 +1,121 @@
+package ej4;
+
+import java.util.Scanner;
+
+import ej4.Publicaciones;
+
+public class Main {
+
+	
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		Publicaciones l1= new Publicaciones(123,"A fuego lento", 2021,false);
+		Publicaciones l2= new Publicaciones(234,"Los hombres que no amaban a las mujeres", 2005,false);
+		Publicaciones l3= new Publicaciones(345,"Si me dices ven lo dejo todo... pero dime ven",2011,false);
+		
+		Publicaciones r1= new Publicaciones(321,"Nature",2001,false,1);
+		Publicaciones r2= new Publicaciones(432,"Science", 2000,false,2);
+		Publicaciones r3= new Publicaciones(543,"Cosmopolitan", 1993,false,3);
+		
+		
+		
+		Publicaciones[] libros= {l1,l2,l3};
+		Publicaciones[] revistas= {r1,r2,r3};
+		
+		System.out.println("La lista de libros de la biblioteca es la siguiente");
+		
+		for(Publicaciones a:libros) {
+			System.out.println(a.toStringL());
+		}
+		
+		System.out.println("-----------------------------------------------------");
+		System.out.println("La lista de revistas de la biblioteca es la siguiente");
+		for(Publicaciones a:revistas) {
+			System.out.println(a.toString());
+		}
+		
+		System.out.println("-----------------------------------------------------");
+		System.out.println("Desea prestar, devolver o consultar el estado de alguna publicación? (0 No, 1 Si)");
+		int s=sc.nextInt();
+		
+		while(s==1) {
+			System.out.println("Introduzca P para prestar");
+			System.out.println("Introduzca D para devolver");
+			System.out.println("Introduzca C para consultar");
+			String w=sc.next();
+			switch(w) {
+			case "P":
+				System.out.println("Desea prestar un libro (1) o una revista (2)?");
+				int n=sc.nextInt();
+				if(n==1) {
+					System.out.println("Que libro desea prestar? (Orden 1,2,3)");
+					n=sc.nextInt();
+					if(libros[n-1].isPrestado()==true) {
+						System.out.println("El libro ya está prestado");
+					}else {
+						libros[n-1].prestar();
+						System.out.println("Se ha prestado el libro "+ libros[n-1].getTitulo());
+					}
+					
+				}else {
+					System.out.println("Que revista desea prestar? (Orden 1,2,3)");
+					n=sc.nextInt();
+					if(revistas[n-1].isPrestado()==true) {
+						System.out.println("La revista ya está prestada");
+					}else {
+						revistas[n-1].prestar();
+						System.out.println("Se ha prestado la revista "+revistas[n-1].getTitulo());
+					}
+					
+				}
+				break;
+			case "D":
+				System.out.println("Desea devolver un libro (1) o una revista (2)?");
+				int m=sc.nextInt();
+				if(m==1) {
+					System.out.println("Que libro desea devolver? (Orden 1,2,3)");
+					m=sc.nextInt();
+					if(libros[m-1].isPrestado()==false) {
+						System.out.println("El libro no está prestado");
+					}else {
+						libros[m-1].devolver();
+						System.out.println("Se ha devuelto el libro "+ libros[m-1].getTitulo());
+					}
+					
+				}else {
+					
+					System.out.println("Que revista desea devolver? (Orden 1,2,3)");
+					m=sc.nextInt();
+					if(revistas[m-1].isPrestado()==false) {
+						System.out.println("La revista no está prestada");
+					}else {
+						revistas[m-1].devolver();
+						System.out.println("Se ha devuelto la revista "+ revistas[m-1].getTitulo());
+					}
+				}
+				break;
+				
+			case "C":
+				System.out.println("Desea consultar el estado de un libro (1) o una revista (2)?");
+				int c=sc.nextInt();
+				if(c==1) {
+					System.out.println("Que libro desea consultar? (Orden 1,2,3)");
+					c=sc.nextInt();
+					libros[c-1].prestado();
+				}else {
+					System.out.println("Que revista desea consultar? (Orden 1,2,3)");
+					c=sc.nextInt();
+					revistas[c-1].prestado();
+				}
+				break;
+			default:
+				System.out.println("El valor introducido no es correcto.");
+			}
+			
+			System.out.println("Desea prestar, devolver o consultar el estado de otra publicación?");
+			s=sc.nextInt();
+		}
+	}
+
+}

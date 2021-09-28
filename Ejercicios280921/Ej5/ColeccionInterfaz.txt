@@ -1,0 +1,11 @@
+package ejer5;
+
+import ej5.Paciente;
+
+public interface ColeccionInterfaz {
+
+	public boolean añadir(String nom, String sex, int ed);
+	public boolean estaVacia();
+	public Paciente extraer();
+	public Paciente primero();
+}

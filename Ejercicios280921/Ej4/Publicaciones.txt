@@ -1,0 +1,101 @@
+package ej4;
+
+public class Publicaciones implements Prestable {
+
+	private int codigo;
+	private String titulo;
+	private int anyo;
+	private boolean prestado;
+	private int numero;
+	
+	//constructor revistas
+	public Publicaciones(int codigo, String titulo, int anyo, boolean prestado, int numero) {
+		this.codigo = codigo;
+		this.titulo = titulo;
+		this.anyo = anyo;
+		this.prestado = prestado;
+		this.numero = numero;
+	}
+	
+	//constructor libros
+	public Publicaciones(int codigo, String titulo, int anyo, boolean prestado) {
+		this.codigo = codigo;
+		this.titulo = titulo;
+		this.anyo = anyo;
+		this.prestado = prestado;
+	}
+
+	//metodos get y set
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public int getAnyo() {
+		return anyo;
+	}
+
+	public void setAnyo(int anyo) {
+		this.anyo = anyo;
+	}
+
+	public boolean isPrestado() {
+		return prestado;
+	}
+
+	public void setPrestado(boolean prestado) {
+		this.prestado = prestado;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	//implementamos el String toString
+	@Override
+	public String toString() {
+		return "Publicaciones [codigo=" + codigo + ", titulo=" + titulo + ", anyo=" + anyo + ", prestado=" + prestado
+				+ ", numero=" + numero + "]";
+	}
+	
+	public String toStringL() {
+		return "Publicaciones [codigo=" + codigo + ", titulo=" + titulo + ", anyo=" + anyo + ", prestado=" + prestado
+				;
+	}
+	
+	public void prestar() {
+		prestado=true;
+		
+	}
+	
+	public void devolver() {
+		prestado=false;
+		
+	}
+	
+	public void prestado() {
+		if(prestado==true)
+			System.out.println("La publicación está prestada");
+		else
+			System.out.println("La publicación no está prestada");
+		
+	}
+	
+	
+	
+}

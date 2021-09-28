@@ -1,0 +1,59 @@
+package ej3;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+
+	public static int saldoPrestados(Publicaciones[] publi) {
+		int cont=0;
+		for(int i=0; i<publi.length; i++) {
+			if(publi[i].getPrestado()==1) {
+				cont=cont+1;
+			}
+		}
+		return cont;
+	}
+	
+	public static int cantPublicaciones(int a, Publicaciones[] publi) {
+		
+		int cont=0;
+		for(int i=0; i<publi.length;i++) {
+			if(publi[i].getAnyo()<a) {
+				cont=cont+1;
+			}
+		}
+		return cont;
+	}
+	
+	
+	
+	
+	public static void main(String[] args) {
+
+		Publicaciones l1= new Publicaciones("A fuego lento",0, 2021);
+		Publicaciones l2= new Publicaciones("Los hombres que no amaban a las mujeres",1, 2005);
+		Publicaciones l3= new Publicaciones("Si me dices ven lo dejo todo... pero dime ven",0, 2011);
+		
+		Publicaciones r1= new Publicaciones("Nature",0, 2001);
+		Publicaciones r2= new Publicaciones("Science",0, 2000);
+		Publicaciones r3= new Publicaciones("Cosmopolitan",0, 1993);
+		
+		
+		Publicaciones[] publicaciones= {l1,l2,l3,r1,r2,r3};
+		
+		for(Publicaciones a: publicaciones) {
+			System.out.println("Título: "+a.getTitulo());
+			System.out.println("Prestado: "+a.isPrestado());
+			System.out.println("Año: "+a.getAnyo());
+			System.out.println("-------------------------------------------");
+		}
+		
+		System.out.println("En total tenemos "+ saldoPrestados(publicaciones)+" publicaciones prestadas");
+		System.out.println("En total tenemos "+cantPublicaciones(2002,publicaciones)+ " publicaciones anteriores al año 2002");
+		
+	}
+	
+	
+
+}
