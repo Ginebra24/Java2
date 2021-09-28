@@ -1,0 +1,119 @@
+package logica;
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		
+		//declaro variables y nuevo objeto
+		double n,m,suma,resta,produ;
+		int otra;
+		Operaciones o1=new Operaciones();
+		
+		
+		//bucle menú operaciones
+		do {
+		System.out.println("Que operación desea realizar?");
+		System.out.println("Introduzca + para sumar:");
+		System.out.println("Introduzca - para restar:");
+		System.out.println("Introduzca / para dividir:");
+		System.out.println("Introduzca * para multiplicar:");
+		String s=sc.next();
+		
+		switch(s) {
+		case "+":
+			System.out.println("Introduce dos números:");
+			n=sc.nextDouble();
+			m=sc.nextDouble();
+			
+			suma=o1.sumar(n, m);
+			System.out.println("La suma es "+suma);
+			otra=1;
+			while(otra==1) {
+				
+				System.out.println("Quieres sumar otro número? (0 no, 1 si)");
+				otra=sc.nextInt();
+				if(otra==1) {
+					System.out.println("Introduzca un nuevo número: ");
+					n=sc.nextDouble();
+					suma=o1.sumar(n, suma);
+					System.out.println("El resultado de la suma es "+suma);
+				}
+			}
+			
+			
+			break;
+		case "-":
+			System.out.println("Introduce dos números:");
+			n=sc.nextDouble();
+			m=sc.nextDouble();
+			
+			resta=o1.restar(n, m);
+			System.out.println("La resta es "+resta);
+			otra=1;
+			while(otra==1) {
+				
+				System.out.println("Quieres restar otro número? (0 no, 1 si)");
+				otra=sc.nextInt();
+				if(otra==1) {
+					System.out.println("Introduzca un nuevo número: ");
+					n=sc.nextDouble();
+					resta=o1.restar(resta,n);
+					System.out.println("El resultado de la resta es "+resta);
+				}
+			}
+			break;
+			
+		case "/":
+						
+			System.out.println("Introduce dos números:");
+			n=sc.nextDouble();
+			m=sc.nextDouble();
+							
+			if(n==0 || m==0) {
+				try {
+					int div=(int)(n/m);
+					System.out.println(div);
+				}catch(ArithmeticException e) {
+					System.out.println("No se puede dividir por cero");
+				}
+				
+			}else
+				System.out.println("La division es "+o1.dividir(n,m));
+			break;
+			
+		case "*":
+			
+			System.out.println("Introduce dos números:");
+			n=sc.nextDouble();
+			m=sc.nextDouble();
+			
+			produ=o1.multiplicar(n, m);
+			System.out.println("El producto es "+produ);
+			otra=1;
+			while(otra==1) {
+				
+				System.out.println("Quieres multiplicar otro número? (0 no, 1 si)");
+				otra=sc.nextInt();
+				if(otra==1) {
+					System.out.println("Introduzca un nuevo número: ");
+					n=sc.nextDouble();
+					produ=o1.multiplicar(n, produ);
+					System.out.println("El resultado del producto es "+produ);
+				}
+			}
+		
+			break;
+		default:
+			
+		}
+		System.out.println("Quiere realizar otra operación? (0 no, 1 si)");
+		otra=sc.nextInt();
+		
+		}while(otra==1);
+	}
+
+}

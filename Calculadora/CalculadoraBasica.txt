@@ -1,0 +1,8 @@
+package logica;
+
+public interface CalculadoraBasica {
+
+	//interface con metodo calcula para introducir los valores
+	public abstract double calcula(double n, double m);
+	
+}

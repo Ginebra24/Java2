@@ -1,0 +1,47 @@
+package logica;
+
+public class Operaciones implements CalculadoraBasica {
+	private double n;
+	private double m;
+	
+	//constructor de la clase
+	public Operaciones() {
+		
+	}
+
+
+	//operaciones basicas usando expresiones lambda
+	CalculadoraBasica suma=(n,m)->(n+m);
+	CalculadoraBasica resta=(n,m)->(n-m);
+	CalculadoraBasica division=(n,m)->(n/m);
+	CalculadoraBasica producto=(n,m)->(n*m);
+
+	//metodo para sumar
+	public double sumar(double n, double m) {	
+		return suma.calcula(n, m);
+	}
+	
+	//metodo para restar
+	public double restar(double n, double m) {
+		return resta.calcula(n, m);
+	}
+	
+	//metodo para dividir
+	public double dividir(double n, double m) {
+		return division.calcula(n, m);
+	}
+	
+	//metodo para multiplicar
+	public double multiplicar(double n, double m) {
+		return producto.calcula(n, m);
+	}
+	
+
+	@Override
+	public double calcula(double n, double m) {
+		// TODO Esbozo de método generado automáticamente
+		return 0;
+	}
+	
+
+}
