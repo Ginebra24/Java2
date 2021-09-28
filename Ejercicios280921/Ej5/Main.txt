@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Stack;
 
-import ej5.Paciente;
+import ejer5.Paciente;
 
 public class Main  {
 	

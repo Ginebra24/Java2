@@ -1,6 +1,6 @@
 package ejer5;
 
-import ej5.Paciente;
+import ejer5.Paciente;
 
 public interface ColeccionInterfaz {
 

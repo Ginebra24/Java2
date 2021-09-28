@@ -4,18 +4,18 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
-import ej5.Paciente;
+import ejer5.Paciente;
 
 public class Pila implements ColeccionInterfaz {
 	
 	private Stack<Paciente> pila=new Stack<Paciente>();
-	private int max=10;
+	private int max;
 	private int tam;
 	private Paciente eliminado;
 	private Paciente primero;
 	private Iterator<Paciente> i=pila.iterator();
 	
-	
+	//constructor de pila
 	public Pila(Stack<Paciente> pila, int max) {
 		super();
 		this.pila = pila;
@@ -51,7 +51,7 @@ public class Pila implements ColeccionInterfaz {
 			try {
 				eliminado=pila.pop();
 			} catch (NoSuchElementException e) {
-				
+				throw new NoSuchElementException("No hay pacientes en la pila.");
 				
 			}
 			return eliminado;
@@ -64,7 +64,7 @@ public class Pila implements ColeccionInterfaz {
 				primero=pila.peek();
 				
 			} catch (NoSuchElementException e) {
-				System.out.println("No hay pacientes en la pila");
+				throw new NoSuchElementException("No hay pacientes en la pila");
 			}
 			return primero;
 		}
