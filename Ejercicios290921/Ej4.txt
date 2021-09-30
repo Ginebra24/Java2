@@ -1,0 +1,42 @@
+package ej4;
+
+import java.util.Scanner;
+
+public class Ejer4 {
+
+	public static void main(String[] args) {
+
+		Scanner sc=new Scanner(System.in);
+		
+		int[][] matrix=new int[4][4];
+		boolean simetrico;
+		
+		for(int i=0;i<4;i++) {
+			for(int j=0;j<4;j++) {
+				System.out.println("Introduzca el número de la posición ["+i+"] ["+j+"]");
+				matrix[i][j]=sc.nextInt();
+			}
+		}
+		
+		simetrico=true;
+		int i=0;
+		while(i<(matrix.length-1) && simetrico==true) {
+			int j=0;
+			while(j<(matrix.length-1) && simetrico==true) {
+				if(matrix[i][j]!=matrix[j][i]) {
+					simetrico=false;
+				}
+				j++;
+			}
+			i++;
+		}
+		if(simetrico) {
+			System.out.println("La matriz es simétrica");
+		}else
+			System.out.println("La matriz no es simétrica");
+		
+		
+		
+	}
+
+}

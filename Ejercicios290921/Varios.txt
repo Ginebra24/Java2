@@ -1,0 +1,73 @@
+package varios;
+
+import java.util.Scanner;
+
+public class Funciones {
+
+	public static void main(String[] args) {
+
+		repetir(2);
+		System.out.println("---------------");
+		System.out.println(maximo(2.8,1.9));
+		System.out.println("---------------");
+		comprendidos(3,8);
+		System.out.println("---------------");
+		doble(5.8);
+		System.out.println("---------------");
+		areaVol(3,5);
+		
+	}
+	
+	//13. Función a la que se le pasa como parámetro un número N
+	// y muestra por pantalla N veces el mensaje: "Módulo ejecutándose"
+	public static void repetir(int N) {
+		for(int i=0;i<N;i++) {
+			System.out.println("Módulo ejecutándose");
+		}
+	}
+	
+	//14. Tiene como parámetros dos números y calcula el máximo
+	public static double maximo(double a, double b) {
+		if(a>b)
+			return a;
+		else
+			return b;
+	}
+	
+	//15. Se le pasan dos enteros y muestra todos los números
+	//comprendidos entre ellos, inclusive.
+	public static void comprendidos(int a, int b) {
+		if(a<b) {
+			for(int i=a;i<=b;i++) {
+				System.out.println(i);
+			}
+		}else if(b<a){
+			for(int i=b;i<=a;i++) {
+				System.out.println(i);
+			}
+		}else
+			System.out.println("Son el mismo número");
+		
+	}
+	
+	//16. Muestra en pantalla el doble del valor que se le pasa
+	public static void doble(double a) {
+		System.out.println(a*2);
+	}
+	
+	//17. Calcula área o volumen de un cilindro, a partir del radio y la altura
+	public static void areaVol(double r, double h) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("[a] Área");
+		System.out.println("[v] Volumen");
+		String c=sc.next();
+		if(c=="a") {
+			System.out.println("El área del cilindro es "+(2*Math.PI*r*h+2*Math.PI*r*r));
+		}else if(c=="v") {
+			System.out.println("El volumen del cilindro es "+Math.PI*r*r*h);
+		}
+	}
+	
+	//18. 
+
+}

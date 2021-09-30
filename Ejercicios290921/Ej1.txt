@@ -1,0 +1,40 @@
+package ej1;
+
+import java.util.Scanner;
+
+public class Ejer1 {
+
+	public static void main(String[] args) {
+		
+		int[] enteros= new int[10];
+		int num, posicion;
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Introduzca 6 números:");
+		for(int i=0;i<6;i++) {
+			enteros[i]=sc.nextInt();
+		}
+		
+		for(int i=0;i<enteros.length;i++) {
+			System.out.println(enteros[i]);
+		}
+		
+		
+		System.out.println("Introduzca otro número");
+		num=sc.nextInt();
+		System.out.println("Introduzca la posición  (de 0 a 9)");
+		posicion=sc.nextInt();
+		
+		for(int i=9; i>posicion;i--) {
+			enteros[i]=enteros[i-1];
+		}
+		
+		enteros[posicion]=num;
+		
+		for(int i=0;i<enteros.length;i++) {
+			System.out.println(enteros[i]);
+		}
+
+	}
+
+}
